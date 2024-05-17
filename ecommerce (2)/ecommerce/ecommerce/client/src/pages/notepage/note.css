@@ -1,0 +1,98 @@
+/* NotePage.module.css */
+
+.container {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  margin-left: 25rem;
+  margin-right: 25rem;
+  margin-top: 10rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  }
+  .title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.input,
+.select,
+.textarea {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  transition: background-color 0.3s ease;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  background-color: #e0e0e0;
+  outline: none;
+}
+.labelogin{
+  font-size: 30px;
+  color: #34D399;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+.submit {
+  border: 2px solid #34D399;
+  color: #34D399;
+  border-radius: 9999px; 
+  padding: 12px 60px;
+  display: inline-block;
+  font-weight: 600;
+  transition: background-color 0.3s, color 0.3s; 
+  font-size: large;
+}
+.submit:hover {
+  background-color: #34D399;
+  color: #fff;
+}
+  
+  .add-edit-note-container {
+    margin-bottom: 20px;
+  }
+  
+  .add-edit-note-container input[type="text"],
+  .add-edit-note-container textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+  }
+  
+  .add-edit-note-container button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  .notes-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .notes-container li {
+    margin-bottom: 10px;
+  }
+  
+  .notes-container li button {
+    margin-left: 10px;
+    background-color: #dc3545;
+  }
+  

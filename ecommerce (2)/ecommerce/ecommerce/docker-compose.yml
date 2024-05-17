@@ -1,0 +1,196 @@
+version: "4"
+services:
+  client:
+    build: ./client
+    container_name: client_container
+    stdin_open: true
+    ports:
+      - "3000:3000"
+    networks:
+      - ecommerce-app
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+  users_service:
+    build: ./users_service
+    container_name: users_service_container
+    ports:
+      - "5000:5000"
+    networks:
+      - ecommerce-app
+    links:
+      - users_db
+    restart: on-failure
+    depends_on:
+      - users_db
+    volumes:
+      - ./users_service:/app
+      - /app/node_modules
+  users_db:
+    image: mongo:3.6.19-xenial
+    ports:
+      - "27017:27017"
+    networks:
+      - ecommerce-app
+    volumes:
+      - users-volume:/data/db
+  products_service:
+    build: ./products_service
+    container_name: products_service_container
+    ports:
+      - "5001:5001"
+    networks:
+      - ecommerce-app
+    links:
+      - products_db
+    restart: on-failure
+    depends_on:
+      - products_db
+    volumes:
+      - ./products_service:/app
+      - /app/node_modules
+  products_db:
+    image: mongo:3.6.19-xenial
+    ports:
+      - "27018:27017"
+    networks:
+      - ecommerce-app
+    volumes:
+      - products-volume:/data/db
+  weather_service:
+    build: ./weather_service
+    container_name: weather_service_container
+    ports:
+      - "5002:5002"
+    networks:
+      - ecommerce-app
+    volumes:
+      - ./weather_service:/app
+      - /app/node_modules
+  shopping_cart_service:
+    build: ./shopping_cart_service
+    container_name: shopping_cart_service_container
+    ports:
+      - "5003:5003"
+    networks:
+      - ecommerce-app
+    links:
+      - shopping_cart_db
+    restart: on-failure
+    depends_on:
+      - shopping_cart_db
+    volumes:
+      - ./shopping_cart_service:/app
+      - /app/node_modules
+  shopping_cart_db:
+    image: mongo:3.6.19-xenial
+    ports:
+      - "27019:27017"
+    networks:
+      - ecommerce-app
+    volumes:
+      - shopping-cart-volume:/data/db
+
+  feedback_service:
+    build: ./feedback_service
+    container_name: feedback_service_container
+    ports:
+      - "5004:5004"
+    networks:
+      - ecommerce-app
+    links:
+      - feedback_db
+    restart: on-failure
+    depends_on:
+      - feedback_db  # Depend on the feedback DB container
+    volumes:
+      - ./feedback_service:/app
+      - /app/node_modules
+
+  feedback_db:
+    image: mongo:3.6.19-xenial
+    ports:
+      - "27020:27017"  # Adjust the port if needed
+    networks:
+      - ecommerce-app
+    volumes:
+      - feedback-volume:/data/db
+
+
+  contact_service:
+    build: ./contact_service
+    container_name: contact_service_container
+    ports:
+      - "5006:5006"
+    networks:
+      - ecommerce-app
+    links:
+      - contact_db
+    restart: on-failure
+    depends_on:
+      - contact_db  
+    volumes:
+      - ./contact_service:/app
+      - /app/node_modules
+
+  contact_db:
+    image: mongo:3.6.19-xenial
+    ports:
+      - "27022:27017"  # Adjust the port if needed
+    networks:
+      - ecommerce-app
+    volumes:
+      - contact-volume:/data/db
+
+
+  notetake_service:
+    build: ./notetake_service
+    container_name: notetake_service_container
+    ports:
+      - "5005:5005"
+    networks:
+      - ecommerce-app
+    links:
+      - note_db
+    restart: on-failure
+    depends_on:
+      - note_db  # Depend on the feedback DB container
+    volumes:
+      - ./notetake_service:/app
+      - /app/node_modules
+
+  note_db:
+    image: mongo:3.6.19-xenial
+    ports:
+      - "27021:27017"  # Adjust the port if needed
+    networks:
+      - ecommerce-app
+    volumes:
+      - note-volume:/data/db
+
+  nodejs_service:
+    build: ./nodejs_service
+    container_name: nodejs_service_container
+    ports:
+      - "6002:6002"
+    networks:
+      - ecommerce-app
+    volumes:
+      - ./nodejs_service:/app
+      - /app/node_modules
+networks:
+  ecommerce-app:
+    driver: bridge
+volumes:
+  users-volume:
+    driver: local
+  products-volume:
+    driver: local
+  shopping-cart-volume:
+    driver: local
+  feedback-volume:
+    driver: local
+  note-volume:
+    driver: local
+  contact-volume:
+    driver: local

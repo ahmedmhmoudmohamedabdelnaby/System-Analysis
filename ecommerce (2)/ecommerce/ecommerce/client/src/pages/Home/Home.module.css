@@ -1,0 +1,117 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4; /* Light background color for the body */
+}
+
+.navbar {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space items evenly */
+  align-items: center; /* Align items vertically */
+  background-color: #e0e0e0; /* Dark background color for the navbar */
+  padding: 1rem; /* Add some padding for spacing */
+  box-shadow: 0px 4px 6px rgba(139, 136, 136, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: 5px;
+}
+
+.navbar ul {
+  list-style-type: none; /* Remove bullet points from the list */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+.navbar ul li {
+  display: inline; /* Display list items horizontally */
+  margin-right: 1rem; /* Add some space between list items */
+}
+
+.navbar ul li a {
+  color: #34D399; /* Set text color to white */
+  text-decoration: none; /* Remove underline from links */
+  font-size: 1.2rem; /* Adjust font size */
+  transition: color 0.3s; /* Add transition effect */
+}
+
+.navbar ul li a:hover {
+  color: #3e4640; 
+}
+
+.container {
+  padding: 3rem;
+  display: ruby-text;
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: 0px 4px 6px rgba(44, 43, 43, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: 5px;
+  margin: 10rem;
+}
+
+.errorMsg,
+.notFound {
+  color: rgb(0, 0, 0);
+  padding: 1rem;
+  font-size: 2rem;
+}
+
+.weather {
+  font-size: 2rem;
+  padding: 1rem;
+  margin: 10rem;
+  border: 1px solid rgb(255, 240, 240);
+  box-shadow: 0px 4px 6px rgba(139, 136, 136, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: 5px;
+  color: #07070c;
+  text-align: center;
+}
+
+.logout {
+  border: 2px solid #34D399;
+  color: #ffffff;
+  background-color: #34D399;
+
+  border-radius: 9999px; 
+  padding: 12px 60px;
+  display: inline-block;
+  font-weight: 600;
+  transition: background-color 0.3s, color 0.3s; 
+  font-size: large;
+}
+
+.logout:hover {
+  background-color: #ffffff;
+  color:  #34D399;
+}
+
+span {
+  font-size: 2rem;
+  color: black;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+}
+.spanweth{
+  font-size: 2rem;
+  color: black;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+
+}
+.randomNumberContainer{
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+}
+.randomNumberButton{
+  width: 35%;
+  padding: 1.2rem;
+  font-size: 1.8rem;
+  background-color: #34D399;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
